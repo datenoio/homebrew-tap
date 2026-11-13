@@ -16,6 +16,10 @@ class Undatum < Formula
 
   depends_on "python@3.13"
 
+  # The dependencies are prebuilt wheels: an absolute install name does not fit in the
+  # Mach-O header of some of them (orjson), so their @rpath names stay as they are.
+  preserve_rpath
+
   def install
     python3 = Formula["python@3.13"].opt_bin/"python3.13"
     # Without system site-packages: packages installed into Homebrew's Python must not leak in.
