@@ -1,5 +1,6 @@
-# Homebrew formula for the datenoio tap, rendered on release by
-# scripts/render_homebrew_formula.py in datenoio/undatum (packaging/homebrew/undatum.rb.in).
+# Homebrew formula for the datenoio tap (https://github.com/datenoio/homebrew-tap),
+# rendered on release by scripts/render_homebrew_formula.py (https://files.pythonhosted.org/packages/6a/6e/53cec6eaa8948ea411971ac9ad852c20cb889b72ed0f16b9e8a4a9f8091e/undatum-2.0.1.tar.gz and b693dbfe95802dac5de29ecfbc78dbb208a7f984cca5a48d0c976899643e3ca8 are
+# filled in; the version comes from the URL).
 #
 # undatum depends on DuckDB and Apache Arrow, which are impractical to build from
 # source, so the formula installs the released source distribution and the wheels of its
