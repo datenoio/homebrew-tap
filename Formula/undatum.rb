@@ -21,7 +21,7 @@ class Undatum < Formula
   preserve_rpath
 
   def install
-    python3 = Formula["python@3.13"].opt_bin/"python3.13"
+    python3 = formula_opt_bin("python@3.13")/"python3.13"
     # Without system site-packages: packages installed into Homebrew's Python must not leak in.
     virtualenv_create(libexec, python3, system_site_packages: false)
     system python3, "-m", "pip", "--python=#{libexec}/bin/python", "install", "--no-cache-dir", buildpath
