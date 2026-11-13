@@ -26,16 +26,10 @@ jobs:
       - uses: actions/checkout@v7
       - name: Tap this checkout
         run: brew tap datenoio/tap "$GITHUB_WORKSPACE"
-      - name: Install without trusting the tap (probe)
-        id: untrusted
-        continue-on-error: true
-        run: brew install --verbose datenoio/tap/${{ matrix.formula }} </dev/null
-      - name: Trust the tap
-        run: brew trust --tap datenoio/tap
-      - name: Audit
-        continue-on-error: true
-        run: brew audit --formula --tap=datenoio/tap
+      # As a user installs it: naming the formula with its tap trusts that formula.
       - name: Install
-        run: brew install --verbose datenoio/tap/${{ matrix.formula }}
+        run: brew install --verbose datenoio/tap/${{ matrix.formula }} </dev/null
       - name: Test
         run: brew test --verbose datenoio/tap/${{ matrix.formula }}
+      - name: Audit
+        run: brew audit --formula datenoio/tap/${{ matrix.formula }}
